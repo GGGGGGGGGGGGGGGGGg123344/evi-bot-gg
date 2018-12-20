@@ -425,7 +425,8 @@ function checkMembers(guild) {
         .setTimestamp();
      
      
-     if(!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send(missingPermissionsEmbed);
+     if(!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send(missingPermissionsEmbed); 
+    
      
      
      
