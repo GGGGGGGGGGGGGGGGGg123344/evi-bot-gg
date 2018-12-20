@@ -33,6 +33,25 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`With Evil OP`);
 });
 
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome-leave');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(':bust_in_silhouette: | name : ', `${member}`)
+        .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
+        .addField(':id: | User :', "**[" + `${member.id}` + "]**")
+        .addField(':family_mwgb: | Your are the member', `${member.guild.memberCount}`)
+        .addField("Name", `<@` + `${member.id}` + `>`, true)
+        .addField('Server', `${member.guild.name}`, true )
+        .setFooter(`**${member.guild.name}**`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
+
 
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
@@ -52,32 +71,9 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-  // Let's go with a few common example commands! Feel free to delete or change those.
+  // Let's go with a few common example commands! Feel free to delete or change those
   
-  
-  bot.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome-leave');
-    let memberavatar = member.user.avatarURL
-        if (!channel) return;
-        let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':bust_in_silhouette: | name : ', `${member}`)
-        .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
-        .addField(':id: | User :', "**[" + `${member.id}` + "]**")
-        .addField(':family_mwgb: | Your are the member', `${member.guild.memberCount}`)
-        .addField("Name", `<@` + `${member.id}` + `>`, true)
-        .addField('Server', `${member.guild.name}`, true )
-        .setFooter(`**${member.guild.name}**`)
-        .setTimestamp()
-
-        channel.sendEmbed(embed);
-});
-  
-  
-  
-  
-  if(command === "ping") {
+    if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
