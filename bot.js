@@ -417,7 +417,7 @@ function checkMembers(guild) {
 }
   
    if(command === "nick"){
-      if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["Owner", "HOUND"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
      
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -427,8 +427,8 @@ function checkMembers(guild) {
     if(!nickname) nickname = "No nickname provided";
     
     await member.setNickname(nickname)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't chnage because of : ${error}`));
-    message.reply(`${member.user.tag} nickname was changed....`);
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't change because of : ${error}`));
+    message.reply(`${member.user.tag} nickname changed`);
        
      }
  
