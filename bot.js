@@ -418,15 +418,8 @@ function checkMembers(guild) {
   
    if(command === "nick"){
     
-      if(!message.member.roles.some(r=>["Administrator", "Owner"].includes(r.name)) )
-      return message.reply("Hey IMMORTAL, Sorry U cant do that!!");
-    
-     
-     
-     
-       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member)
-      return message.reply("Please mention a valid member of this server");
+      let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member) return message.reply("Please mention a valid member of this server");
        let nickname = args.slice(1).join(' ');
     if(!nickname) nickname = "No nickname provided";
     
