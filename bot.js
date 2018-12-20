@@ -416,6 +416,20 @@ function checkMembers(guild) {
     message.delete(); // Deletes the command
 }
   
+   if(command === "nick"){
+        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member)
+      return message.reply("Please mention a valid member of this server");
+       let nickname = args.slice(1).join(' ');
+    if(!nickname) nickname = "No nickname provided";
+    
+    await member.setNickname(nickname)
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't chnage because of : ${error}`));
+    message.reply(`${member.user.tag} nickname was changed....`);
+       
+     }
+ 
+  
 });
   
 
