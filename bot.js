@@ -62,7 +62,7 @@ client.on('guildMemberRemove', member => {
         .addField('Name:', `${member}`)
         .addField('Has Let the Server', ';(')
         .addField('Bye Bye :(', 'Yaad teri aayegi...Hamko bada satayegi!!')
-        .addField('The server now as', `${member.guild.memberCount}` + " members")
+        .addField('The server now has', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
         .setTimestamp()
 
