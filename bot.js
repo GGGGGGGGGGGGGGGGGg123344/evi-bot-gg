@@ -54,6 +54,29 @@ client.on("message", async message => {
   
   // Let's go with a few common example commands! Feel free to delete or change those.
   
+  
+  bot.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome-leave');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(':bust_in_silhouette: | name : ', `${member}`)
+        .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
+        .addField(':id: | User :', "**[" + `${member.id}` + "]**")
+        .addField(':family_mwgb: | Your are the member', `${member.guild.memberCount}`)
+        .addField("Name", `<@` + `${member.id}` + `>`, true)
+        .addField('Server', `${member.guild.name}`, true )
+        .setFooter(`**${member.guild.name}**`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
+  
+  
+  
+  
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
