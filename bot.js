@@ -417,20 +417,14 @@ function checkMembers(guild) {
 }
   
    if(command === "nick"){
-     var missingPermissionsEmbed = new Discord.RichEmbed() // Creates the embed thats sent if the user is missing permissions
-        .setColor(embedColor)
-        .setAuthor(message.author.username, message.author.avatarURL)
-        .setTitle('Insufficient Permissions!')
-        .setDescription('You need the `MANAGE_MESSAGES` permission to use this command!')
-        .setTimestamp();
-     
-     
-     if(!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send(missingPermissionsEmbed); 
+    
+      if(!message.member.roles.some(r=>["Administrator", "Owner"].includes(r.name)) )
+      return message.reply("Hey IMMORTAL, Sorry U cant do that!!");
     
      
      
      
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+       let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid member of this server");
        let nickname = args.slice(1).join(' ');
