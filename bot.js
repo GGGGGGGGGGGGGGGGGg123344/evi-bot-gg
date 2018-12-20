@@ -272,7 +272,7 @@ function checkMembers(guild) {
   if(command === "avatar"){
     let user = message.mentions.users.first() || message.author;
     let embed = new Discord.RichEmbed()
-    .addField('Kaha se laate ho ye sundar chehra :hearteyes:', user.username, true)
+    .addField('Kaha se laate ho ye sundar chehra :heart_eyes:', user.username, true)
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL)
     .setColor('RANDOM')
