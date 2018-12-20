@@ -242,7 +242,7 @@ function checkMembers(guild) {
   if(!mutetime) return message.reply("You didn't specify a time!");
 
   await(tomute.addRole(muterole.id));
-  message.reply(`Zeus..Impact <@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+  message.reply(`Evil Power is now on... <@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
 
   setTimeout(function(){
     tomute.removeRole(muterole.id);
@@ -269,10 +269,10 @@ function checkMembers(guild) {
   message.channel.send(embed);
 }
   
-  if(command === "mukhda"){
+  if(command === "avatar"){
     let user = message.mentions.users.first() || message.author;
     let embed = new Discord.RichEmbed()
-    .addField('Ye raha aapka sundar chehra :wink:', user.username, true)
+    .addField('Kaha se laate ho ye sundar chehra :hearteyes:', user.username, true)
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL)
     .setColor('RANDOM')
