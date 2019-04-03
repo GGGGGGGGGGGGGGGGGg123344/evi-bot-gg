@@ -456,7 +456,7 @@ function checkMembers(guild) {
 connection.play(ytdl(
   'https://www.youtube.com/watch?v=EsceiAe1B6w',
   { filter: 'audioonly' }));
-
+  }
   
 });
   
