@@ -445,6 +445,19 @@ function checkMembers(guild) {
    member.send(reason);
  }
   
+  if (command === "bol") {
+        var VC = message.member.voiceChannel;
+        if (!VC)
+            return message.reply("Saale Vc Join Kar");
+    VC.join()
+        .then(connection => {
+            const dispatcher = connection.playFile('https://www.youtube.com/watch?v=lS7y6Lghpo8');
+            dispatcher.on("end", end => {VC.leave()});
+        })
+        .catch(console.error);
+}
+  
+  
 });
   
 
