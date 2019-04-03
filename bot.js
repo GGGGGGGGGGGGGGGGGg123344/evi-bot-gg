@@ -429,14 +429,21 @@ function checkMembers(guild) {
        
      }
   
-  if(command === "senddm"){
-   if(mention == null) { return; }
-   message.delete();
-   mentionMessage = message.content.slice (8);
-   mention.sendMessage (mentionMessage);
-   message.channel.send ("Kardiya");
+ if(command === "senddm") {
+    
+    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
+    
+    
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if(!member)
+      return message.reply("Please mention a valid member of this server");
+   
+   let reason = args.slice(1).join(' ');
+    if(!reason) reason = "No reason provided";
+   
+   member.send(reason);
  }
- 
   
 });
   
