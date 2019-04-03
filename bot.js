@@ -445,18 +445,18 @@ function checkMembers(guild) {
    member.send(reason);
  }
   
-  if (command === "bol") {
-        var VC = message.member.voiceChannel;
-        if (!VC)
-            return message.reply("Saale Vc Join Kar");
-    VC.join()
-        .then(connection => {
-            const dispatcher = connection.playFile('https://www.youtube.com/watch?v=lS7y6Lghpo8');
-            dispatcher.on("end", end => {VC.leave()});
-        })
-        .catch(console.error);
-}
-  
+ if (command === "bol") {
+    // Only try to join the sender's voice channel if they are in one themselves
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  const ytdl = require('ytdl-core');
+connection.play(ytdl(
+  'https://www.youtube.com/watch?v=EsceiAe1B6w',
+  { filter: 'audioonly' }));
+
   
 });
   
