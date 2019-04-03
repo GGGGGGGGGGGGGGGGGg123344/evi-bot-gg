@@ -428,6 +428,14 @@ function checkMembers(guild) {
     message.reply(`${member.user.tag} nickname changed`);
        
      }
+  
+  if(command === "senddm"){
+   if(mention == null) { return; }
+   message.delete();
+   mentionMessage = message.content.slice (8);
+   mention.sendMessage (mentionMessage);
+   message.channel.send ("Kardiya");
+ }
  
   
 });
