@@ -445,19 +445,32 @@ function checkMembers(guild) {
    member.send(reason);
  }
   
-if (command === "bol") {
-    // Only try to join the sender's voice channel if they are in one themselves
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel.join()
-        .then(connection => { // Connection is an instance of VoiceConnection
-          message.reply('I have successfully connected to the channel!');
-        })
-        .catch(console.log);
-    } else {
-      message.reply('You need to join a voice channel first!');
-    }
-  connection.playArbitraryInput('https://www.youtube.com/watch?v=EsceiAe1B6w');
-}
+
+  
+ 
+
+  
+   
+
+  if(command === "poll") {
+    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
+
+    if (!args[0]) return message.channel.send('Zinge tu admin nai he Samja!');
+
+    const embed = new Discord.RichEmbed()
+        .setColor(0xffffff)
+        .setFooter('React to vote.')
+        .setDescription(args.join(' '))
+        .setTitle(`Poll created by ${message.author.username}`);
+
+    let msg = await message.channel.send(embed);
+
+    await msg.react('✅'); 
+    await msg.react('❌');
+
+    message.delete({timeout: 1000});
+
+} 
   
 });
   
