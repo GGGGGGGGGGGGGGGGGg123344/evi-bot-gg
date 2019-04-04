@@ -115,7 +115,7 @@ client.on("message", async message => {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER"].includes(r.name)) )
       return message.reply("***Zinge tu nai kar sakta Noobde***");
     
     // Let's first check if we have a member and if we can kick them!
@@ -143,7 +143,7 @@ client.on("message", async message => {
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator", "Staff", "HOUND", "MODERATOR", "LEADER", "Admin", "OWNER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Administrator", "STAFF", "HOUND", "MODERATOR", "LEADER", "Admin", "OWNER"].includes(r.name)) )
       return message.reply("***Zinge Tu nai kar sakta***");
     
     let member = message.mentions.members.first();
@@ -250,7 +250,7 @@ function checkMembers(guild) {
   
   if(command === "mute") 
   {
-    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
