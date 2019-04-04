@@ -116,16 +116,16 @@ client.on("message", async message => {
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
     if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("***Zinge tu nai kar sakta Noobde***");
     
     // Let's first check if we have a member and if we can kick them!
     // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
     // We can also support getting the member by ID, which would be args[0]
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
-      return message.reply("Please mention a valid member of this server");
+      return message.reply("***Naam To Bata Saale...Kise Kick Karu?***");
     if(!member.kickable) 
-      return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
+      return message.reply("***Nai Kar sakta BSDKA MOd Ya Admin he***");
     
     // slice(1) removes the first part, which here should be the user mention or ID
     // join(' ') takes all the various parts to make it a single string.
@@ -134,8 +134,8 @@ client.on("message", async message => {
     
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} was kicked....`);
+      .catch(error => message.reply(`***Sorry ${message.author} I couldn't kick because of : ${error}***`));
+    message.reply(`***${member.user.tag} was kicked....***`);
      message.delete().catch(O_o=>{}); 
 
   }
@@ -144,38 +144,38 @@ client.on("message", async message => {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
     if(!message.member.roles.some(r=>["Administrator", "Staff", "HOUND", "Mod", "LEADER"].includes(r.name)) )
-      return message.reply("Hey IMMORTAL, Sorry U cant do that!!");
+      return message.reply("***Zinge Tu nai kar sakta***");
     
     let member = message.mentions.members.first();
     if(!member)
-      return message.reply("Please mention a valid member of this server");
+      return message.reply("***Please mention a valid member of this server***");
     if(!member.bannable) 
-      return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
+      return message.reply("***I cannot ban this user! Admin ya Mod he BSDKA***");
 
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "No reason provided";
     
     await member.ban(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+    message.reply(`***${member.user.tag} has been banned by ${message.author.tag} because: ${reason}....Gaand Mara***`);
   }
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
     if(!message.member.roles.some(r=>["Administrator", "Mod", "Staff", "HOUND", "LEADER", "OWNER", "Admin"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("***Sorry, you don't have permissions to use this!***");
     
     // get the delete count, as an actual number.
     const deleteCount = parseInt(args[0], 10);
     
     // Ooooh nice, combined conditions. <3
     if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
+      return message.reply("***Please provide a number between 2 and 100 for the number of messages to delete***");
     
     // So we get our messages, and delete them. Simple enough, right?
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+      .catch(error => message.reply(`***Couldn't delete messages because of: ${error}***`));
   }
   
   function checkBots(guild) {
@@ -278,11 +278,11 @@ function checkMembers(guild) {
   if(!mutetime) return message.reply("You didn't specify a time!");
 
   await(tomute.addRole(muterole.id));
-  message.reply(`Evil Power is now on... <@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+  message.reply(`***Ab Kuch Nai Bolega Chup hi Holega <@${tomute.id}> mute hogaya for ${ms(ms(mutetime))}***`);
 
   setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
+    message.channel.send(`***<@${tomute.id}> Ab Bol tu unmuted he***`);
   }, ms(mutetime));
 
 
@@ -308,7 +308,7 @@ function checkMembers(guild) {
   if(command === "avatar"){
     let user = message.mentions.users.first() || message.author;
     let embed = new Discord.RichEmbed()
-    .addField('Kaha se laate ho ye sundar chehra :heart_eyes:', user.username, true)
+    .addField('AAY KYA CHEHRA HE RE TERA!! :heart_eyes:', user.username, true)
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL)
     .setColor('RANDOM')
