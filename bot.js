@@ -103,7 +103,7 @@ client.on("message", async message => {
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
     
-    if(!message.member.roles.some(r=>["Mod", "MODERATOR", "STAFF", "HOUND"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Mod", "MODERATOR", "STAFF", "HOUND", "OWNER"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!")
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete().catch(O_o=>{}); 
@@ -250,7 +250,7 @@ function checkMembers(guild) {
   
   if(command === "mute") 
   {
-    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
