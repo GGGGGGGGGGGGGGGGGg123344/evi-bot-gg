@@ -103,7 +103,7 @@ client.on("message", async message => {
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
     
-    if(!message.member.roles.some(r=>["Mod", "Moderator", "Staff", "HOUND"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Mod", "MODERATOR", "STAFF", "HOUND"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!")
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete().catch(O_o=>{}); 
