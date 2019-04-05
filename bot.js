@@ -387,7 +387,7 @@ function checkMembers(guild) {
   
   
   if(command === "warn"){
-    var embedColor = '#ffffff' // Change this to change the color of the embeds!
+    var embedColor = '#0000ff' // Change this to change the color of the embeds!
     
     var missingPermissionsEmbed = new Discord.RichEmbed() // Creates the embed thats sent if the user is missing permissions
         .setColor(embedColor)
