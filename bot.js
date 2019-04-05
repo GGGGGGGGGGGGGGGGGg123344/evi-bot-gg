@@ -453,7 +453,7 @@ function checkMembers(guild) {
   
   
   if(command === "help") {
-    message.reply("See the Truth is For any kind of Help Contact **Capt.SOM**");
+    message.reply("*See the Truth is For any kindly of Help Contact* ***Capt.Som*** :pray:");
   }
 
   
