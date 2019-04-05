@@ -289,6 +289,20 @@ function checkMembers(guild) {
 //end of module
 }
   
+  if(command === "unmute"){
+    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER", "Leader"].includes(r.name)) )
+      return message.reply("Nai nai nai bete tum na kar paoge");
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let muterole = message.guild.roles.find(`name`, "muted");
+    tomute.removeRole(muterole.id);
+    message.channel.send(`***<@${tomute.id}> Ab Bol tu unmuted he*** :Yeye:`);
+  }
+  
+  
+  
+  
+  
+  
   
  if(command === "whois"){
   let user = message.mentions.users.first() || message.author;
