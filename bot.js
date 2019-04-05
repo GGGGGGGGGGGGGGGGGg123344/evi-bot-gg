@@ -18,19 +18,19 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`for any help contact Capt.som`);
+  client.user.setActivity(`Born To Snipe`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`for any help contact Capt.som`);
+  client.user.setActivity(`Born To Snipe`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`for any help contact Capt.som`);
+  client.user.setActivity(`Born To Snipe`);
 });
 
 client.on('guildMemberAdd', member => {
@@ -452,16 +452,7 @@ function checkMembers(guild) {
  }
   
   
-  if(command === "help") {
-    message.reply("*See the Truth is For any kindly of Help Contact* ***Capt.Som*** :pray:");
-  }
-
   
- 
-
-  
-   
-
   if(command === "poll") {
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('This requires the permission: ADMINISTRATOR');
 
