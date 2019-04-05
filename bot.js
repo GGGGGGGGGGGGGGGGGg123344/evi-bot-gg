@@ -250,10 +250,10 @@ function checkMembers(guild) {
   
   if(command === "mute") 
   {
-    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER", "Leader"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.reply("Couldn't find user.");
+  if(!tomute) return message.reply("No No No Nahi nai kar sakte tum!!");
   let muterole = message.guild.roles.find(`name`, "muted");
   //start of create role
   if(!muterole){
