@@ -18,19 +18,19 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`SEX SEX`);
+  client.user.setActivity(`With Legs`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`SEX SEX`);
+  client.user.setActivity(`With Legs`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`SEX SEX`);
+  client.user.setActivity(`With Legs`);
 });
 
 client.on('guildMemberAdd', member => {
@@ -163,7 +163,7 @@ client.on("message", async message => {
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
     if(!message.member.roles.some(r=>["Leader", "MODERATOR", "STAFF", "HOUND", "LEADER", "OWNER", "Almighty"].includes(r.name)) )
-      return message.reply("***Beta Tumse Na HoPayegaa*** :Yeye:");
+      return message.reply("***Beta Tumse Na HoPayegaa :Yeye: ***");
     
     // get the delete count, as an actual number.
     const deleteCount = parseInt(args[0], 10);
