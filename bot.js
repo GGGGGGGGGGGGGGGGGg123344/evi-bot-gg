@@ -451,6 +451,10 @@ function checkMembers(guild) {
    member.send(reason);
  }
   
+  
+  if(command === "help") {
+    message.reply("See the Truth is For any kind of Help Contact **Capt.SOM**");
+  }
 
   
  
