@@ -251,9 +251,9 @@ function checkMembers(guild) {
   if(command === "mute") 
   {
     if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER", "Leader"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("Nai nai nai bete tum na kar paoge");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.reply("No No No Nahi nai kar sakte tum!!");
+  if(!tomute) return message.reply("Naam To bata Hawa me mute Maru ");
   let muterole = message.guild.roles.find(`name`, "muted");
   //start of create role
   if(!muterole){
