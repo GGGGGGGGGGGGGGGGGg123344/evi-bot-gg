@@ -437,7 +437,7 @@ function checkMembers(guild) {
   
  if(command === "senddm") {
     
-    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "Staff", "HOUND", "Mod", "LEADER","Admin"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["OWNER", "MODERATOR", "STAFF", "HOUND", "Mod", "Leader","Admin"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     
