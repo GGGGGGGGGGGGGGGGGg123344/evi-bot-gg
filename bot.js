@@ -305,15 +305,7 @@ function checkMembers(guild) {
   message.channel.send(embed);
 }
   
-  if(command === "avatar"){
-    let user = message.mentions.users.first() || message.author;
-    let embed = new Discord.RichEmbed()
-    .addField('AAY HAAY KYA CHEHRA HE RE TERA!! :heart_eyes:', user.username, true)
-    .setAuthor(`${user.username}'s Avatar`)
-    .setImage(user.displayAvatarURL)
-    .setColor('RANDOM')
-    message.channel.send(embed);
-}
+ 
   
   var jokes = [
     "What time did the man go to the dentist? Tooth hurt-y",
