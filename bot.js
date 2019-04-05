@@ -34,7 +34,7 @@ client.on("guildDelete", guild => {
 });
 
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome-leave');
+    let channel = member.guild.channels.find('name', '╚»★«╝-ωεﾚς⊕mε-🙏');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -103,7 +103,7 @@ client.on("message", async message => {
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
     
-    if(!message.member.roles.some(r=>["Mod", "MODERATOR", "STAFF", "HOUND", "OWNER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Leader", "MODERATOR", "STAFF", "HOUND", "OWNER", "LEADER", "Almighty"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!")
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete().catch(O_o=>{}); 
@@ -115,7 +115,7 @@ client.on("message", async message => {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER", "OWNER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Leader", "MODERATOR", "STAFF", "HOUND", "Mod", "LEADER", "OWNER", "Almighty"].includes(r.name)) )
       return message.reply("***Zinge tu nai kar sakta Noobde***");
     
     // Let's first check if we have a member and if we can kick them!
@@ -125,7 +125,7 @@ client.on("message", async message => {
     if(!member)
       return message.reply("***Naam To Bata Saale...Kise Kick Karu?***");
     if(!member.kickable) 
-      return message.reply("***Nai Kar sakta BSDKA MOd Ya Admin he***");
+      return message.reply("***Nai Kar sakta BSDKA Mod Ya Admin he***");
     
     // slice(1) removes the first part, which here should be the user mention or ID
     // join(' ') takes all the various parts to make it a single string.
@@ -134,8 +134,8 @@ client.on("message", async message => {
     
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
-      .catch(error => message.reply(`***Sorry ${message.author} I couldn't kick because of : ${error}***`));
-    message.reply(`***${member.user.tag} was kicked....***`);
+      .catch(error => message.reply(`***Sorry ${message.author} I couldn't kick because report is HIV+`));
+    message.reply(`***${member.user.tag} Ko Laat Maar Di :NIKAL: ....***`);
      message.delete().catch(O_o=>{}); 
 
   }
@@ -143,7 +143,7 @@ client.on("message", async message => {
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator", "STAFF", "HOUND", "MODERATOR", "LEADER", "Admin", "OWNER"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Leader", "STAFF", "HOUND", "MODERATOR", "LEADER", "Almighty", "OWNER"].includes(r.name)) )
       return message.reply("***Zinge Tu nai kar sakta***");
     
     let member = message.mentions.members.first();
@@ -156,14 +156,14 @@ client.on("message", async message => {
     if(!reason) reason = "No reason provided";
     
     await member.ban(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`***${member.user.tag} has been banned by ${message.author.tag} because: ${reason}....Gaand Mara***`);
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of AIDS`));
+    message.reply(`***${member.user.tag} is banned by ${message.author.tag} because: ${reason}....Gaand Mara***`);
   }
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
-    if(!message.member.roles.some(r=>["Administrator", "MODERATOR", "STAFF", "HOUND", "LEADER", "OWNER", "Admin"].includes(r.name)) )
-      return message.reply("***Sorry, you don't have permissions to use this!***");
+    if(!message.member.roles.some(r=>["Leader", "MODERATOR", "STAFF", "HOUND", "LEADER", "OWNER", "Almighty"].includes(r.name)) )
+      return message.reply("***Beta Tumse Na HoPayegaa*** :Yeye:");
     
     // get the delete count, as an actual number.
     const deleteCount = parseInt(args[0], 10);
@@ -175,7 +175,7 @@ client.on("message", async message => {
     // So we get our messages, and delete them. Simple enough, right?
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`***Couldn't delete messages because of: ${error}***`));
+      .catch(error => message.reply(`***Couldn't delete messages because of Constipation :poop:***`));
   }
   
   function checkBots(guild) {
@@ -278,11 +278,11 @@ function checkMembers(guild) {
   if(!mutetime) return message.reply("You didn't specify a time!");
 
   await(tomute.addRole(muterole.id));
-  message.reply(`***Ab Kuch Nai Bolega Chup hi Holega <@${tomute.id}> mute hogaya for ${ms(ms(mutetime))}***`);
+  message.reply(`***Ab Kuch Nai Bolega Chup hi Holega <@${tomute.id}> muted :no_mouth: for ${ms(ms(mutetime))}***`);
 
   setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.channel.send(`***<@${tomute.id}> Ab Bol tu unmuted he***`);
+    message.channel.send(`***<@${tomute.id}> Ab Bol tu unmuted he*** :Yeye:`);
   }, ms(mutetime));
 
 
@@ -308,7 +308,7 @@ function checkMembers(guild) {
   if(command === "avatar"){
     let user = message.mentions.users.first() || message.author;
     let embed = new Discord.RichEmbed()
-    .addField('AAY KYA CHEHRA HE RE TERA!! :heart_eyes:', user.username, true)
+    .addField('AAY HAAY KYA CHEHRA HE RE TERA!! :heart_eyes:', user.username, true)
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL)
     .setColor('RANDOM')
@@ -425,7 +425,7 @@ function checkMembers(guild) {
     
     await member.setNickname(nickname)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't change because of : ${error}`));
-    message.reply(`${member.user.tag} nickname changed`);
+    
        
      }
   
